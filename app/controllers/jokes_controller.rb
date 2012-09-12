@@ -7,9 +7,13 @@ class JokesController < ApplicationController
   end
   def create
     @joke = Joke.new(params[:joke])
-    @joke.save
+    if @joke.save
     flash[:notice] = "Joke has been created."
     redirect_to @joke
+    else
+    flash[:notice] = "Joke has not been created."
+   render :action => "new"
+    end
   end
   def show
     @joke = Joke.find(params[:id])
