@@ -1,6 +1,6 @@
 class JokesController < ApplicationController
   def index
-    
+    @jokes = Joke.all
   end
   def new
     @joke = Joke.new
@@ -18,4 +18,5 @@ class JokesController < ApplicationController
   def show
     @joke = Joke.find(params[:id])
   end
+  
 end
