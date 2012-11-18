@@ -4,9 +4,13 @@ As a user
 I want to be able to do that through an interface
 
 Background:
-Given there is a joke called "Lawak hari ini"
+Given there are the following users:
+| email | password |
+| wanmuz86@gmail.com | password |
+And I am signed in as them
+And "wanmuz86@gmail.com" has created "Lawak Hari ini"
 And I am on the homepage
-When I follow "Lawak hari ini"
+When I follow "Lawak Hari ini"
 And I follow "Edit Joke"
 Scenario: Updating a joke
 

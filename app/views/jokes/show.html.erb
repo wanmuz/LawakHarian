@@ -1,6 +1,7 @@
 <% title(@joke.title) %>
 <h2><%= @joke.title%></h2>
 <p><%= @joke.description%></p>
+<br><small>Created by <%= @joke.user.email %></small>
 <%= link_to "Edit Joke", edit_joke_path(@joke) %>
 <%= link_to "Delete Joke", @joke, :method => :delete,
 :confirm => "Are you sure you want to delete this project?"%>

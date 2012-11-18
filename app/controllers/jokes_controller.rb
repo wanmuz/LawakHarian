@@ -1,4 +1,5 @@
 class JokesController < ApplicationController
+  before_filter :authenticate_user!, :except => [:index, :show]
   before_filter :find_joke, :only => [:show, :edit, :update, :destroy]
   def index
     @jokes = Joke.all
@@ -7,7 +8,7 @@ class JokesController < ApplicationController
     @joke = Joke.new
   end
   def create
-    @joke = Joke.new(params[:joke])
+    @joke = Joke.new(params[:joke].merge!(:user => current_user))
     if @joke.save
     flash[:notice] = "Joke has been created."
     redirect_to @joke
