@@ -62,6 +62,7 @@ Lawak::Application.routes.draw do
 root :to => "jokes#index"
 resources :jokes
 namespace :admin do
+  root :to =>"base#index"
   resources :users
 end
 end
