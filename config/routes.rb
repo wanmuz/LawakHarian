@@ -1,4 +1,6 @@
 Lawak::Application.routes.draw do
+  get "users/index"
+
   devise_for :users
 
   # The priority is based upon order of creation:
@@ -59,4 +61,7 @@ Lawak::Application.routes.draw do
   # match ':controller(/:action(/:id(.:format)))'
 root :to => "jokes#index"
 resources :jokes
+namespace :admin do
+  resources :users
+end
 end
